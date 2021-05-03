@@ -8,24 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		0BA71E80263F5AD2009E57A4 /* ScavangWithFriendsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71E7F263F5AD2009E57A4 /* ScavangWithFriendsApp.swift */; };
-		0BA71E82263F5AD2009E57A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71E81263F5AD2009E57A4 /* ContentView.swift */; };
 		0BA71E84263F5AD3009E57A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA71E83263F5AD3009E57A4 /* Assets.xcassets */; };
 		0BA71E87263F5AD3009E57A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA71E86263F5AD3009E57A4 /* Preview Assets.xcassets */; };
 		0BA71E90263F5E11009E57A4 /* TitleMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71E8F263F5E11009E57A4 /* TitleMenuView.swift */; };
 		0BA71E93263F5E4F009E57A4 /* SingleGameConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71E92263F5E4F009E57A4 /* SingleGameConfigView.swift */; };
 		0BA71E96263F5E6D009E57A4 /* SingleGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71E95263F5E6D009E57A4 /* SingleGameView.swift */; };
+		0BA71E99263FA62F009E57A4 /* SingleGameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71E98263FA62F009E57A4 /* SingleGameInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0BA71E7C263F5AD2009E57A4 /* ScavangWithFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScavangWithFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA71E7F263F5AD2009E57A4 /* ScavangWithFriendsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScavangWithFriendsApp.swift; sourceTree = "<group>"; };
-		0BA71E81263F5AD2009E57A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0BA71E83263F5AD3009E57A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BA71E86263F5AD3009E57A4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0BA71E88263F5AD3009E57A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BA71E8F263F5E11009E57A4 /* TitleMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleMenuView.swift; sourceTree = "<group>"; };
 		0BA71E92263F5E4F009E57A4 /* SingleGameConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGameConfigView.swift; sourceTree = "<group>"; };
 		0BA71E95263F5E6D009E57A4 /* SingleGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGameView.swift; sourceTree = "<group>"; };
+		0BA71E98263FA62F009E57A4 /* SingleGameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGameInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +58,9 @@
 		0BA71E7E263F5AD2009E57A4 /* ScavangWithFriends */ = {
 			isa = PBXGroup;
 			children = (
-				0BA71E7F263F5AD2009E57A4 /* ScavangWithFriendsApp.swift */,
-				0BA71E81263F5AD2009E57A4 /* ContentView.swift */,
-				0BA71E8F263F5E11009E57A4 /* TitleMenuView.swift */,
-				0BA71E92263F5E4F009E57A4 /* SingleGameConfigView.swift */,
-				0BA71E95263F5E6D009E57A4 /* SingleGameView.swift */,
+				0BA71E9E263FA7CF009E57A4 /* Title */,
+				0BA71E9C263FA7B8009E57A4 /* App */,
+				0BA71E9B263FA7A8009E57A4 /* SingleGame */,
 				0BA71E83263F5AD3009E57A4 /* Assets.xcassets */,
 				0BA71E88263F5AD3009E57A4 /* Info.plist */,
 				0BA71E85263F5AD3009E57A4 /* Preview Content */,
@@ -76,6 +74,32 @@
 				0BA71E86263F5AD3009E57A4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0BA71E9B263FA7A8009E57A4 /* SingleGame */ = {
+			isa = PBXGroup;
+			children = (
+				0BA71E92263F5E4F009E57A4 /* SingleGameConfigView.swift */,
+				0BA71E95263F5E6D009E57A4 /* SingleGameView.swift */,
+				0BA71E98263FA62F009E57A4 /* SingleGameInteractor.swift */,
+			);
+			path = SingleGame;
+			sourceTree = "<group>";
+		};
+		0BA71E9C263FA7B8009E57A4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0BA71E7F263F5AD2009E57A4 /* ScavangWithFriendsApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0BA71E9E263FA7CF009E57A4 /* Title */ = {
+			isa = PBXGroup;
+			children = (
+				0BA71E8F263F5E11009E57A4 /* TitleMenuView.swift */,
+			);
+			path = Title;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,9 +171,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BA71E99263FA62F009E57A4 /* SingleGameInteractor.swift in Sources */,
 				0BA71E90263F5E11009E57A4 /* TitleMenuView.swift in Sources */,
 				0BA71E96263F5E6D009E57A4 /* SingleGameView.swift in Sources */,
-				0BA71E82263F5AD2009E57A4 /* ContentView.swift in Sources */,
 				0BA71E93263F5E4F009E57A4 /* SingleGameConfigView.swift in Sources */,
 				0BA71E80263F5AD2009E57A4 /* ScavangWithFriendsApp.swift in Sources */,
 			);

@@ -1,10 +1,10 @@
 import SwiftUI
 
 struct SingleGameView: View {
+	@StateObject
 	@State private var selectedTab = 0
 	let things = ["elephant", "pig", "chair", "ball", "cat", "rabbit"]
 	var body: some View {
-
 		VStack() {
 			Text("\(selectedTab)")
 			Spacer()
