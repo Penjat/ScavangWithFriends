@@ -1,4 +1,4 @@
-
+import Foundation
 import Combine
 
 protocol SingleGameInteractor {
@@ -44,17 +44,19 @@ class RealSingleGameInteractor: SingleGameInteractor, ObservableObject {
 	private lazy var results = intents.flatMap { (intent) -> Publishers.Sequence<[SingleGameResult], Never> in
 		print("intent recieved")
 		switch intent {
-		case .takePhoto:
-			print("subitted photo")
-			return [].publisher
+		case .takePhoto(let key):
+			self.game.tookPhoto(key: key, photoURL: URL(string: "www.google.com")!)
+			return [.updateUnPhotoed(self.game.remainingClues.map{$0.key})].publisher
+//					return [.updateUnPhotoed(["hi","hi","hi","hi","hi"])].publisher
 		}
 	}.share()
 
 	private func resultsToViewState() {
 		results.sink{ result in
 			switch result {
-			case .updateUnPhotoed(let _):
-				print("result to state")
+			case .updateUnPhotoed(let remainingClues):
+				print("updating state")
+				self.viewState = SingleGameViewState(unPhotoed: remainingClues)
 			}
 		}.store(in: &bag)
 	}

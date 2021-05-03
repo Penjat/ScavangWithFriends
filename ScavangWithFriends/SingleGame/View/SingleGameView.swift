@@ -7,13 +7,13 @@ struct SingleGameView: View {
 	var body: some View {
 		VStack() {
 			Text("\(selectedTab)")
-			Button(action: { interactor.processInput(.takePhoto)}){
-				Text("take photo")
+			Button(action: { interactor.processInput(.takePhoto(interactor.viewState.unPhotoed[selectedTab]))}){
+				Text("take photo \(interactor.viewState.unPhotoed[selectedTab])")
 			}
 			Spacer()
-			TabView(selection: $selectedTab){
-				ForEach(0..<interactor.viewState.unPhotoed.count) { index in
-					Text(interactor.viewState.unPhotoed[index]).tag(index)
+			Picker("", selection: $selectedTab){
+				ForEach(interactor.viewState.unPhotoed, id: \.self) { clue in
+					Text(clue)
 				}
 			}
 			.tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))

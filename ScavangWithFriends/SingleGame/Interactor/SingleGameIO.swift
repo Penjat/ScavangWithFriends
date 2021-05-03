@@ -2,7 +2,7 @@ import Foundation
 
 //MARK: Input
 enum SingleGameViewIntent {
-	case takePhoto
+	case takePhoto(String)
 }
 
 //MARK: Output
