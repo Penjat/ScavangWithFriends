@@ -9,6 +9,7 @@ class ScavangWithFriendsTests: XCTestCase {
 
 		///Then
 		XCTAssertEqual(singleGame.clues.count, 0)
+		XCTAssertEqual(singleGame.remainingClues.count, 0)
 	}
 
 	func testSingleGameFiveClues() {
@@ -22,7 +23,9 @@ class ScavangWithFriendsTests: XCTestCase {
 
 		///Then
 		XCTAssertEqual(singleGame.clues.count, 5)
+		XCTAssertEqual(singleGame.remainingClues.count, 5)
 	}
+
 
 
 }

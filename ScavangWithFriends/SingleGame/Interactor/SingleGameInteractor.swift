@@ -9,11 +9,20 @@ protocol SingleGameInteractor {
 // MARK: - Implemetation
 class RealSingleGameInteractor: SingleGameInteractor, ObservableObject {
 	var viewStatePublisher: Published<SingleGameViewState>.Publisher { $viewState }
-	@Published var viewState: SingleGameViewState = SingleGameViewState(unPhotoed: ["go","bo"])
+	@Published var viewState: SingleGameViewState
+
+	private let game = SingleGame(clues: [
+									"chair":ResponseState.none,
+									"apple":ResponseState.none,
+									"bucket":ResponseState.none,
+									"broom":ResponseState.none,
+									"banana":ResponseState.none])
+
 	private var bag = Set<AnyCancellable>()
 	private let intents = PassthroughSubject<SingleGameViewIntent, Never>()
 	//MARK: - LifeCycle
 	init() {
+		viewState = SingleGameViewState(unPhotoed: game.remainingClues.map{$0.key})
 		resultsToViewState()
 	}
 

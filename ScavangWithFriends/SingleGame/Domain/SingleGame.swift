@@ -8,6 +8,17 @@ class SingleGame {
 		self.clues = clues
 	}
 
+	var remainingClues: [Clue: ResponseState] {
+		clues.filter{
+			switch $0.value {
+			case .none:
+				return true
+			default:
+				return false
+			}
+		}
+	}
+
 	func tookPhoto(key: Clue, photoURL: URL) {
 		if clues.contains(where: {(k,_) in k == key}){
 			clues[key] = ResponseState.photoTaken(photoURL)
