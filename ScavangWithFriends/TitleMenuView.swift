@@ -3,7 +3,10 @@ import SwiftUI
 struct TitleMenuView: View {
     var body: some View {
 		NavigationView(content: {
-			NavigationLink(destination: SingleGameConfigView()) { /*@START_MENU_TOKEN@*/Text("Navigate")/*@END_MENU_TOKEN@*/ }
+			VStack(){
+				Text("SCAVANG with FRIENDS").font(.title).padding()
+				NavigationLink(destination: SingleGameConfigView()) { Text("single player") }
+			}
 		})
     }
 }
