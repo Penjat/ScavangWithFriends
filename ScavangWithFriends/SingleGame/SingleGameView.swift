@@ -1,16 +1,18 @@
 import SwiftUI
 
 struct SingleGameView: View {
-	@StateObject
+	@StateObject var interactor = RealSingleGameInteractor()
 	@State private var selectedTab = 0
-	let things = ["elephant", "pig", "chair", "ball", "cat", "rabbit"]
 	var body: some View {
 		VStack() {
 			Text("\(selectedTab)")
+			Button(action: { interactor.processInput(.submitPhoto)}){
+				Text("take photo")
+			}
 			Spacer()
 			TabView(selection: $selectedTab){
-				ForEach(0..<things.count) { index in
-					Text(things[index]).tag(index)
+				ForEach(0..<interactor.unphotoedArray.count) { index in
+					Text(interactor.unphotoedArray[index]).tag(index)
 				}
 			}
 			.tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))

@@ -9,8 +9,8 @@ protocol SingleGameInteractor {
 // MARK: - Implemetation
 class RealSingleGameInteractor: SingleGameInteractor, ObservableObject {
 
-//	@published unphotoedArray;
-
+	@Published var unphotoedArray = ["hi"]
+	var bag = Set<AnyCancellable>()
 	//MARK: - Input
 	let intents = PassthroughSubject<SingleGameIntent, Never>()
 
@@ -27,6 +27,21 @@ class RealSingleGameInteractor: SingleGameInteractor, ObservableObject {
 			return [].publisher
 		}
 	}.share()
+
+	init() {
+		let _ = results.sink{ result in
+			switch result {
+			case .updateUnPhotoed(let unPhotoed):
+				print("result to state")
+			}
+		}.store(in: &bag)
+	}
+
+	deinit {
+		bag.removeAll()
+	}
+
+	@Published var viewState: SingleGameViewState = SingleGameViewState()
 }
 
 //MARK: I/O
@@ -36,4 +51,8 @@ enum SingleGameIntent {
 
 enum SingleGameResult {
 	case updateUnPhotoed([String])
+}
+
+struct SingleGameViewState {
+
 }
