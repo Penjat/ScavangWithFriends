@@ -3,56 +3,50 @@ import Combine
 
 protocol SingleGameInteractor {
 	func processInput(_ intent: SingleGameIntent)
-	//	var viewState:  AnyCancellable { get }
+	var viewStatePublisher: Published<SingleGameViewState>.Publisher { get }
 }
 
 // MARK: - Implemetation
 class RealSingleGameInteractor: SingleGameInteractor, ObservableObject {
-
-	@Published var unphotoedArray = ["hi"]
-	var bag = Set<AnyCancellable>()
-	//MARK: - Input
-	let intents = PassthroughSubject<SingleGameIntent, Never>()
-
-	func processInput(_ intent: SingleGameIntent) {
-		intents.send(intent)
-	}
-
-	//MARK: - Side Effects
-	lazy var results = intents.flatMap { (intent) -> Publishers.Sequence<[SingleGameResult], Never> in
-		print("intent recieved")
-		switch intent {
-		case .submitPhoto:
-			print("subitted photo")
-			return [].publisher
-		}
-	}.share()
-
+	var viewStatePublisher: Published<SingleGameViewState>.Publisher { $viewState }
+	@Published var viewState: SingleGameViewState = SingleGameViewState(unPhotoed: ["go","bo"])
+	private var bag = Set<AnyCancellable>()
+	private let intents = PassthroughSubject<SingleGameIntent, Never>()
+	//MARK: - LifeCycle
 	init() {
-		let _ = results.sink{ result in
-			switch result {
-			case .updateUnPhotoed(let unPhotoed):
-				print("result to state")
-			}
-		}.store(in: &bag)
+		resultsToViewState()
 	}
 
 	deinit {
 		bag.removeAll()
 	}
 
-	@Published var viewState: SingleGameViewState = SingleGameViewState()
-}
 
-//MARK: I/O
-enum SingleGameIntent {
-	case submitPhoto
-}
+	//MARK: - Input
+	public func processInput(_ intent: SingleGameIntent) {
+		intents.send(intent)
+	}
 
-enum SingleGameResult {
-	case updateUnPhotoed([String])
-}
+	//MARK: - Side Effects
+	private enum SingleGameResult {
+		case updateUnPhotoed([String])
+	}
 
-struct SingleGameViewState {
+	private lazy var results = intents.flatMap { (intent) -> Publishers.Sequence<[SingleGameResult], Never> in
+		print("intent recieved")
+		switch intent {
+		case .takePhoto:
+			print("subitted photo")
+			return [].publisher
+		}
+	}.share()
 
+	private func resultsToViewState() {
+		results.sink{ result in
+			switch result {
+			case .updateUnPhotoed(let _):
+				print("result to state")
+			}
+		}.store(in: &bag)
+	}
 }

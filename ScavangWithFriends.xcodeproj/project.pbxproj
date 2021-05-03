@@ -14,6 +14,7 @@
 		0BA71E93263F5E4F009E57A4 /* SingleGameConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71E92263F5E4F009E57A4 /* SingleGameConfigView.swift */; };
 		0BA71E96263F5E6D009E57A4 /* SingleGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71E95263F5E6D009E57A4 /* SingleGameView.swift */; };
 		0BA71E99263FA62F009E57A4 /* SingleGameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71E98263FA62F009E57A4 /* SingleGameInteractor.swift */; };
+		0BA71EA226404A07009E57A4 /* SingleGameIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71EA126404A07009E57A4 /* SingleGameIO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		0BA71E92263F5E4F009E57A4 /* SingleGameConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGameConfigView.swift; sourceTree = "<group>"; };
 		0BA71E95263F5E6D009E57A4 /* SingleGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGameView.swift; sourceTree = "<group>"; };
 		0BA71E98263FA62F009E57A4 /* SingleGameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGameInteractor.swift; sourceTree = "<group>"; };
+		0BA71EA126404A07009E57A4 /* SingleGameIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGameIO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				0BA71E92263F5E4F009E57A4 /* SingleGameConfigView.swift */,
 				0BA71E95263F5E6D009E57A4 /* SingleGameView.swift */,
 				0BA71E98263FA62F009E57A4 /* SingleGameInteractor.swift */,
+				0BA71EA126404A07009E57A4 /* SingleGameIO.swift */,
 			);
 			path = SingleGame;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				0BA71E99263FA62F009E57A4 /* SingleGameInteractor.swift in Sources */,
 				0BA71E90263F5E11009E57A4 /* TitleMenuView.swift in Sources */,
 				0BA71E96263F5E6D009E57A4 /* SingleGameView.swift in Sources */,
+				0BA71EA226404A07009E57A4 /* SingleGameIO.swift in Sources */,
 				0BA71E93263F5E4F009E57A4 /* SingleGameConfigView.swift in Sources */,
 				0BA71E80263F5AD2009E57A4 /* ScavangWithFriendsApp.swift in Sources */,
 			);
