@@ -2,7 +2,7 @@
 import Combine
 
 protocol SingleGameInteractor {
-	func processInput(_ intent: SingleGameIntent)
+	func processInput(_ intent: SingleGameViewIntent)
 	var viewStatePublisher: Published<SingleGameViewState>.Publisher { get }
 }
 
@@ -11,7 +11,7 @@ class RealSingleGameInteractor: SingleGameInteractor, ObservableObject {
 	var viewStatePublisher: Published<SingleGameViewState>.Publisher { $viewState }
 	@Published var viewState: SingleGameViewState = SingleGameViewState(unPhotoed: ["go","bo"])
 	private var bag = Set<AnyCancellable>()
-	private let intents = PassthroughSubject<SingleGameIntent, Never>()
+	private let intents = PassthroughSubject<SingleGameViewIntent, Never>()
 	//MARK: - LifeCycle
 	init() {
 		resultsToViewState()
@@ -23,7 +23,7 @@ class RealSingleGameInteractor: SingleGameInteractor, ObservableObject {
 
 
 	//MARK: - Input
-	public func processInput(_ intent: SingleGameIntent) {
+	public func processInput(_ intent: SingleGameViewIntent) {
 		intents.send(intent)
 	}
 

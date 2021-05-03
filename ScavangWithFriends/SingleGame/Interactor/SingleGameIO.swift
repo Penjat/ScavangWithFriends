@@ -1,7 +1,7 @@
 import Foundation
 
 //MARK: Input
-enum SingleGameIntent {
+enum SingleGameViewIntent {
 	case takePhoto
 }
 
