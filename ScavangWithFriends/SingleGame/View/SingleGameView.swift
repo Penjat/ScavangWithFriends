@@ -1,12 +1,13 @@
 import SwiftUI
+import SwiftUICameraService
 
 struct SingleGameView: View {
 	@StateObject var interactor  = RealSingleGameInteractor()
 	@State private var selectedTab = 0
+	@State private var selectedImage: UIImage?
+	@State private var cameraFront = false
 
-	@State private var sourceType: UIImagePickerController.SourceType = .camera
-	   @State private var selectedImage: UIImage?
-	   @State private var isImagePickerDisplay = false
+	let service = SwiftUICameraService.CameraService()
 	
 	var body: some View {
 		switch interactor.viewState.gameState {
@@ -14,22 +15,30 @@ struct SingleGameView: View {
 			Text("Game over")
 		case .playing:
 			ZStack {
-				ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
-			VStack() {
-				Text("\(selectedTab)")
-				Button(action: { interactor.processInput(.takePhoto(interactor.viewState.unPhotoed[selectedTab]))}){
-					Text("take photo \(interactor.viewState.unPhotoed[selectedTab])")
+				SwiftUICameraService.CameraPreview(session: service.session).onAppear{
+					service.checkForPermissions()
+					service.configure()
 				}
-				Spacer()
-				Picker("", selection: $selectedTab){
-					ForEach(interactor.viewState.unPhotoed, id: \.self) { clue in
-						Text(clue)
+				VStack() {
+					Text("\(selectedTab)")
+					Button(action: { interactor.processInput(.takePhoto(interactor.viewState.unPhotoed[selectedTab]))}){
+						Text("take photo \(interactor.viewState.unPhotoed[selectedTab])")
 					}
-				}
-				.tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-				.frame(width: UIScreen.main.bounds.width, height: 200, alignment: .bottom)
+					Spacer()
+
+					Picker("", selection: $selectedTab){
+						ForEach(interactor.viewState.unPhotoed, id: \.self) { clue in
+							Text(clue)
+						}
+					}
+					.tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+					.frame(width: UIScreen.main.bounds.width/2, height: 200, alignment: .bottom)
+				}.navigationBarItems(trailing: Button("Flip"){
+					cameraFront = !cameraFront
+					service.changeCamera()
+					print("camera = \(cameraFront)")
+				})
 			}
-				}
 		}
 	}
 }

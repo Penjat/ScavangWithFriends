@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,8 +18,7 @@
 		0BA71EB026406D13009E57A4 /* SingleGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71EAF26406D13009E57A4 /* SingleGame.swift */; };
 		0BA71ECB26408C99009E57A4 /* ScavangWithFriendsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71ECA26408C99009E57A4 /* ScavangWithFriendsTests.swift */; };
 		0BA71ED426408DE9009E57A4 /* SingleGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71EAF26406D13009E57A4 /* SingleGame.swift */; };
-		0BA71EDD2640DE0D009E57A4 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71EDC2640DE0D009E57A4 /* ImagePickerView.swift */; };
-		0BA71EE12640DE71009E57A4 /* CameraCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71EE02640DE71009E57A4 /* CameraCoordinator.swift */; };
+		0BA71F302641F2EB009E57A4 /* SwiftUICameraService in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA71F2F2641F2EB009E57A4 /* SwiftUICameraService */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +46,7 @@
 		0BA71EC826408C99009E57A4 /* ScavangWithFriendsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScavangWithFriendsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA71ECA26408C99009E57A4 /* ScavangWithFriendsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScavangWithFriendsTests.swift; sourceTree = "<group>"; };
 		0BA71ECC26408C99009E57A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0BA71EDC2640DE0D009E57A4 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
-		0BA71EE02640DE71009E57A4 /* CameraCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCoordinator.swift; sourceTree = "<group>"; };
+		0BA71F292641F178009E57A4 /* SwiftUICameraService */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftUICameraService; path = ../SwiftUICameraService; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BA71F302641F2EB009E57A4 /* SwiftUICameraService in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,8 +72,10 @@
 			isa = PBXGroup;
 			children = (
 				0BA71E7E263F5AD2009E57A4 /* ScavangWithFriends */,
+				0BA71F292641F178009E57A4 /* SwiftUICameraService */,
 				0BA71EC926408C99009E57A4 /* ScavangWithFriendsTests */,
 				0BA71E7D263F5AD2009E57A4 /* Products */,
+				0BA71F2E2641F2EB009E57A4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				0BA71E95263F5E6D009E57A4 /* SingleGameView.swift */,
-				0BA71EDC2640DE0D009E57A4 /* ImagePickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -157,7 +157,6 @@
 		0BA71EAD26406BBF009E57A4 /* Repo */ = {
 			isa = PBXGroup;
 			children = (
-				0BA71EE02640DE71009E57A4 /* CameraCoordinator.swift */,
 			);
 			path = Repo;
 			sourceTree = "<group>";
@@ -179,6 +178,13 @@
 			path = ScavangWithFriendsTests;
 			sourceTree = "<group>";
 		};
+		0BA71F2E2641F2EB009E57A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -195,6 +201,9 @@
 			dependencies = (
 			);
 			name = ScavangWithFriends;
+			packageProductDependencies = (
+				0BA71F2F2641F2EB009E57A4 /* SwiftUICameraService */,
+			);
 			productName = ScavangWithFriends;
 			productReference = 0BA71E7C263F5AD2009E57A4 /* ScavangWithFriends.app */;
 			productType = "com.apple.product-type.application";
@@ -279,11 +288,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BA71E99263FA62F009E57A4 /* SingleGameInteractor.swift in Sources */,
-				0BA71EE12640DE71009E57A4 /* CameraCoordinator.swift in Sources */,
 				0BA71E90263F5E11009E57A4 /* TitleMenuView.swift in Sources */,
 				0BA71E96263F5E6D009E57A4 /* SingleGameView.swift in Sources */,
 				0BA71EA226404A07009E57A4 /* SingleGameIO.swift in Sources */,
-				0BA71EDD2640DE0D009E57A4 /* ImagePickerView.swift in Sources */,
 				0BA71EB026406D13009E57A4 /* SingleGame.swift in Sources */,
 				0BA71E93263F5E4F009E57A4 /* SingleGameConfigView.swift in Sources */,
 				0BA71E80263F5AD2009E57A4 /* ScavangWithFriendsApp.swift in Sources */,
@@ -541,6 +548,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0BA71F2F2641F2EB009E57A4 /* SwiftUICameraService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftUICameraService;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0BA71E74263F5AD2009E57A4 /* Project object */;
 }
