@@ -8,28 +8,54 @@
 
 /* Begin PBXBuildFile section */
 		0BA71E80263F5AD2009E57A4 /* ScavangWithFriendsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71E7F263F5AD2009E57A4 /* ScavangWithFriendsApp.swift */; };
-		0BA71E82263F5AD2009E57A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71E81263F5AD2009E57A4 /* ContentView.swift */; };
 		0BA71E84263F5AD3009E57A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA71E83263F5AD3009E57A4 /* Assets.xcassets */; };
 		0BA71E87263F5AD3009E57A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA71E86263F5AD3009E57A4 /* Preview Assets.xcassets */; };
 		0BA71E90263F5E11009E57A4 /* TitleMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71E8F263F5E11009E57A4 /* TitleMenuView.swift */; };
 		0BA71E93263F5E4F009E57A4 /* SingleGameConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71E92263F5E4F009E57A4 /* SingleGameConfigView.swift */; };
 		0BA71E96263F5E6D009E57A4 /* SingleGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71E95263F5E6D009E57A4 /* SingleGameView.swift */; };
+		0BA71E99263FA62F009E57A4 /* SingleGameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71E98263FA62F009E57A4 /* SingleGameInteractor.swift */; };
+		0BA71EA226404A07009E57A4 /* SingleGameIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71EA126404A07009E57A4 /* SingleGameIO.swift */; };
+		0BA71EB026406D13009E57A4 /* SingleGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71EAF26406D13009E57A4 /* SingleGame.swift */; };
+		0BA71ECB26408C99009E57A4 /* ScavangWithFriendsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71ECA26408C99009E57A4 /* ScavangWithFriendsTests.swift */; };
+		0BA71ED426408DE9009E57A4 /* SingleGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71EAF26406D13009E57A4 /* SingleGame.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0BA71ECD26408C99009E57A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0BA71E74263F5AD2009E57A4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0BA71E7B263F5AD2009E57A4;
+			remoteInfo = ScavangWithFriends;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0BA71E7C263F5AD2009E57A4 /* ScavangWithFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScavangWithFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA71E7F263F5AD2009E57A4 /* ScavangWithFriendsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScavangWithFriendsApp.swift; sourceTree = "<group>"; };
-		0BA71E81263F5AD2009E57A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0BA71E83263F5AD3009E57A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BA71E86263F5AD3009E57A4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0BA71E88263F5AD3009E57A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BA71E8F263F5E11009E57A4 /* TitleMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleMenuView.swift; sourceTree = "<group>"; };
 		0BA71E92263F5E4F009E57A4 /* SingleGameConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGameConfigView.swift; sourceTree = "<group>"; };
 		0BA71E95263F5E6D009E57A4 /* SingleGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGameView.swift; sourceTree = "<group>"; };
+		0BA71E98263FA62F009E57A4 /* SingleGameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGameInteractor.swift; sourceTree = "<group>"; };
+		0BA71EA126404A07009E57A4 /* SingleGameIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGameIO.swift; sourceTree = "<group>"; };
+		0BA71EAF26406D13009E57A4 /* SingleGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleGame.swift; sourceTree = "<group>"; };
+		0BA71EC826408C99009E57A4 /* ScavangWithFriendsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScavangWithFriendsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BA71ECA26408C99009E57A4 /* ScavangWithFriendsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScavangWithFriendsTests.swift; sourceTree = "<group>"; };
+		0BA71ECC26408C99009E57A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		0BA71E79263F5AD2009E57A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BA71EC526408C99009E57A4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				0BA71E7E263F5AD2009E57A4 /* ScavangWithFriends */,
+				0BA71EC926408C99009E57A4 /* ScavangWithFriendsTests */,
 				0BA71E7D263F5AD2009E57A4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				0BA71E7C263F5AD2009E57A4 /* ScavangWithFriends.app */,
+				0BA71EC826408C99009E57A4 /* ScavangWithFriendsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,11 +86,9 @@
 		0BA71E7E263F5AD2009E57A4 /* ScavangWithFriends */ = {
 			isa = PBXGroup;
 			children = (
-				0BA71E7F263F5AD2009E57A4 /* ScavangWithFriendsApp.swift */,
-				0BA71E81263F5AD2009E57A4 /* ContentView.swift */,
-				0BA71E8F263F5E11009E57A4 /* TitleMenuView.swift */,
-				0BA71E92263F5E4F009E57A4 /* SingleGameConfigView.swift */,
-				0BA71E95263F5E6D009E57A4 /* SingleGameView.swift */,
+				0BA71E9E263FA7CF009E57A4 /* Title */,
+				0BA71E9C263FA7B8009E57A4 /* App */,
+				0BA71E9B263FA7A8009E57A4 /* SingleGame */,
 				0BA71E83263F5AD3009E57A4 /* Assets.xcassets */,
 				0BA71E88263F5AD3009E57A4 /* Info.plist */,
 				0BA71E85263F5AD3009E57A4 /* Preview Content */,
@@ -76,6 +102,75 @@
 				0BA71E86263F5AD3009E57A4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0BA71E9B263FA7A8009E57A4 /* SingleGame */ = {
+			isa = PBXGroup;
+			children = (
+				0BA71E92263F5E4F009E57A4 /* SingleGameConfigView.swift */,
+				0BA71EAE26406C99009E57A4 /* Domain */,
+				0BA71EAD26406BBF009E57A4 /* Repo */,
+				0BA71EAB26406B90009E57A4 /* Interactor */,
+				0BA71EAA26406B8C009E57A4 /* View */,
+			);
+			path = SingleGame;
+			sourceTree = "<group>";
+		};
+		0BA71E9C263FA7B8009E57A4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0BA71E7F263F5AD2009E57A4 /* ScavangWithFriendsApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0BA71E9E263FA7CF009E57A4 /* Title */ = {
+			isa = PBXGroup;
+			children = (
+				0BA71E8F263F5E11009E57A4 /* TitleMenuView.swift */,
+			);
+			path = Title;
+			sourceTree = "<group>";
+		};
+		0BA71EAA26406B8C009E57A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0BA71E95263F5E6D009E57A4 /* SingleGameView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0BA71EAB26406B90009E57A4 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				0BA71EA126404A07009E57A4 /* SingleGameIO.swift */,
+				0BA71E98263FA62F009E57A4 /* SingleGameInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		0BA71EAD26406BBF009E57A4 /* Repo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repo;
+			sourceTree = "<group>";
+		};
+		0BA71EAE26406C99009E57A4 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				0BA71EAF26406D13009E57A4 /* SingleGame.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		0BA71EC926408C99009E57A4 /* ScavangWithFriendsTests */ = {
+			isa = PBXGroup;
+			children = (
+				0BA71ECA26408C99009E57A4 /* ScavangWithFriendsTests.swift */,
+				0BA71ECC26408C99009E57A4 /* Info.plist */,
+			);
+			path = ScavangWithFriendsTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +193,24 @@
 			productReference = 0BA71E7C263F5AD2009E57A4 /* ScavangWithFriends.app */;
 			productType = "com.apple.product-type.application";
 		};
+		0BA71EC726408C99009E57A4 /* ScavangWithFriendsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0BA71ECF26408C99009E57A4 /* Build configuration list for PBXNativeTarget "ScavangWithFriendsTests" */;
+			buildPhases = (
+				0BA71EC426408C99009E57A4 /* Sources */,
+				0BA71EC526408C99009E57A4 /* Frameworks */,
+				0BA71EC626408C99009E57A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0BA71ECE26408C99009E57A4 /* PBXTargetDependency */,
+			);
+			name = ScavangWithFriendsTests;
+			productName = ScavangWithFriendsTests;
+			productReference = 0BA71EC826408C99009E57A4 /* ScavangWithFriendsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -109,6 +222,10 @@
 				TargetAttributes = {
 					0BA71E7B263F5AD2009E57A4 = {
 						CreatedOnToolsVersion = 12.4;
+					};
+					0BA71EC726408C99009E57A4 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 0BA71E7B263F5AD2009E57A4;
 					};
 				};
 			};
@@ -126,6 +243,7 @@
 			projectRoot = "";
 			targets = (
 				0BA71E7B263F5AD2009E57A4 /* ScavangWithFriends */,
+				0BA71EC726408C99009E57A4 /* ScavangWithFriendsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -140,6 +258,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0BA71EC626408C99009E57A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -147,15 +272,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BA71E99263FA62F009E57A4 /* SingleGameInteractor.swift in Sources */,
 				0BA71E90263F5E11009E57A4 /* TitleMenuView.swift in Sources */,
 				0BA71E96263F5E6D009E57A4 /* SingleGameView.swift in Sources */,
-				0BA71E82263F5AD2009E57A4 /* ContentView.swift in Sources */,
+				0BA71EA226404A07009E57A4 /* SingleGameIO.swift in Sources */,
+				0BA71EB026406D13009E57A4 /* SingleGame.swift in Sources */,
 				0BA71E93263F5E4F009E57A4 /* SingleGameConfigView.swift in Sources */,
 				0BA71E80263F5AD2009E57A4 /* ScavangWithFriendsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0BA71EC426408C99009E57A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BA71ECB26408C99009E57A4 /* ScavangWithFriendsTests.swift in Sources */,
+				0BA71ED426408DE9009E57A4 /* SingleGame.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0BA71ECE26408C99009E57A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0BA71E7B263F5AD2009E57A4 /* ScavangWithFriends */;
+			targetProxy = 0BA71ECD26408C99009E57A4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0BA71E89263F5AD3009E57A4 /* Debug */ = {
@@ -318,6 +462,46 @@
 			};
 			name = Release;
 		};
+		0BA71ED026408C99009E57A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L688AU9RCV;
+				INFOPLIST_FILE = ScavangWithFriendsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.spencersymington.ScavangWithFriendsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScavangWithFriends.app/ScavangWithFriends";
+			};
+			name = Debug;
+		};
+		0BA71ED126408C99009E57A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L688AU9RCV;
+				INFOPLIST_FILE = ScavangWithFriendsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.spencersymington.ScavangWithFriendsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScavangWithFriends.app/ScavangWithFriends";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -335,6 +519,15 @@
 			buildConfigurations = (
 				0BA71E8C263F5AD3009E57A4 /* Debug */,
 				0BA71E8D263F5AD3009E57A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0BA71ECF26408C99009E57A4 /* Build configuration list for PBXNativeTarget "ScavangWithFriendsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BA71ED026408C99009E57A4 /* Debug */,
+				0BA71ED126408C99009E57A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
