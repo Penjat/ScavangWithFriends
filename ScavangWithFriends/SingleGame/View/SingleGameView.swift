@@ -6,8 +6,6 @@ struct SingleGameView: View {
 	@State private var selectedTab = 0
 	@State private var selectedImage: UIImage?
 	@State private var cameraFront = false
-
-	let service = SwiftUICameraService.CameraService()
 	
 	var body: some View {
 		switch interactor.viewState.gameState {
@@ -15,13 +13,12 @@ struct SingleGameView: View {
 			Text("Game over")
 		case .playing:
 			ZStack {
-				SwiftUICameraService.CameraPreview(session: service.session).onAppear{
-					service.checkForPermissions()
-					service.configure()
+				SwiftUICameraService.CameraPreview(session: interactor.session).onAppear{
+					interactor.processInput(.configure)
 				}
 				VStack() {
 					Text("\(selectedTab)")
-					Button(action: { interactor.processInput(.takePhoto(interactor.viewState.unPhotoed[selectedTab]))}){
+					Button(action: { }){
 						Text("take photo \(interactor.viewState.unPhotoed[selectedTab])")
 					}
 					Spacer()
@@ -34,10 +31,21 @@ struct SingleGameView: View {
 					.tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
 					.frame(width: UIScreen.main.bounds.width/2, height: 200, alignment: .bottom)
 				}.navigationBarItems(trailing: Button("Flip"){
-					cameraFront = !cameraFront
-					service.changeCamera()
-					print("camera = \(cameraFront)")
+//					service.changeCamera()
 				})
+//				if service.photo != nil {
+//					Image(uiImage: service.photo!.image!)
+//						.resizable()
+//						.aspectRatio(contentMode: .fill)
+//						.frame(width: 60, height: 60)
+//						.clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+//						.animation(.spring())
+//
+//				} else {
+//					RoundedRectangle(cornerRadius: 10)
+//						.frame(width: 60, height: 60, alignment: .center)
+//						.foregroundColor(.black)
+//				}
 			}
 		}
 	}

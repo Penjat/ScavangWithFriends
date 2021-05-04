@@ -1,5 +1,7 @@
 import Foundation
 import Combine
+import SwiftUICameraService
+import AVFoundation
 
 protocol SingleGameInteractor {
 	func processInput(_ intent: SingleGameViewIntent)
@@ -8,8 +10,13 @@ protocol SingleGameInteractor {
 
 // MARK: - Implemetation
 class RealSingleGameInteractor: SingleGameInteractor, ObservableObject {
+	let service = SwiftUICameraService.CameraService()
 	var viewStatePublisher: Published<SingleGameViewState>.Publisher { $viewState }
 	@Published var viewState: SingleGameViewState
+
+	var session: AVCaptureSession {
+		return service.session
+	}
 
 	private let game = SingleGame(clues: [
 									"chair":ResponseState.none,
@@ -42,7 +49,7 @@ class RealSingleGameInteractor: SingleGameInteractor, ObservableObject {
 		case gameOver
 	}
 
-	private lazy var results = intents.flatMap { (intent) -> Publishers.Sequence<[SingleGameResult], Never> in
+	private lazy var results = intents.flatMap { [self] (intent) -> Publishers.Sequence<[SingleGameResult], Never> in
 		print("intent recieved")
 		switch intent {
 		case .takePhoto(let key):
@@ -52,6 +59,10 @@ class RealSingleGameInteractor: SingleGameInteractor, ObservableObject {
 				return [.gameOver].publisher
 			}
 			return [.updateUnPhotoed(remainingClues)].publisher
+		case .configure:
+			self.service.checkForPermissions()
+			self.service.configure()
+			return [].publisher
 		}
 	}.share()
 
