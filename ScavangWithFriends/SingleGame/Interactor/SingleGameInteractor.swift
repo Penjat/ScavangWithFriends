@@ -22,7 +22,7 @@ class RealSingleGameInteractor: SingleGameInteractor, ObservableObject {
 	private let intents = PassthroughSubject<SingleGameViewIntent, Never>()
 	//MARK: - LifeCycle
 	init() {
-		viewState = SingleGameViewState(unPhotoed: game.remainingClues.map{$0.key})
+		viewState = SingleGameViewState(gameState: .playing, unPhotoed: game.remainingClues.map{$0.key})
 		resultsToViewState()
 	}
 
@@ -39,6 +39,7 @@ class RealSingleGameInteractor: SingleGameInteractor, ObservableObject {
 	//MARK: - Side Effects
 	private enum SingleGameResult {
 		case updateUnPhotoed([String])
+		case gameOver
 	}
 
 	private lazy var results = intents.flatMap { (intent) -> Publishers.Sequence<[SingleGameResult], Never> in
@@ -46,8 +47,11 @@ class RealSingleGameInteractor: SingleGameInteractor, ObservableObject {
 		switch intent {
 		case .takePhoto(let key):
 			self.game.tookPhoto(key: key, photoURL: URL(string: "www.google.com")!)
-			return [.updateUnPhotoed(self.game.remainingClues.map{$0.key})].publisher
-//					return [.updateUnPhotoed(["hi","hi","hi","hi","hi"])].publisher
+			let remainingClues = self.game.remainingClues.map{$0.key}
+			if remainingClues.isEmpty {
+				return [.gameOver].publisher
+			}
+			return [.updateUnPhotoed(remainingClues)].publisher
 		}
 	}.share()
 
@@ -56,7 +60,9 @@ class RealSingleGameInteractor: SingleGameInteractor, ObservableObject {
 			switch result {
 			case .updateUnPhotoed(let remainingClues):
 				print("updating state")
-				self.viewState = SingleGameViewState(unPhotoed: remainingClues)
+				self.viewState = SingleGameViewState(gameState: .playing, unPhotoed: remainingClues)
+			case .gameOver:
+				self.viewState = SingleGameViewState(gameState: .over, unPhotoed: [])
 			}
 		}.store(in: &bag)
 	}
