@@ -1,5 +1,6 @@
 import Combine
 import SwiftUICameraService
+import UIKit
 
 protocol MainStreamInteractor {
 	func processInput(_ intent: MainStreamViewIntent)
@@ -15,6 +16,8 @@ class RealMainStreamInteractor: MainStreamInteractor, ObservableObject {
 	public init() {
 		viewState = MainStreamViewState.initial
 		resultsToViewState()
+		self.cameraService.checkForPermissions()
+		self.cameraService.configure()
 	}
 
 	deinit {
@@ -35,15 +38,19 @@ class RealMainStreamInteractor: MainStreamInteractor, ObservableObject {
 		case .pressedButton:
 			print("pressed button")
 			return [.openCamera].publisher
-		case .configureCamera:
-			print("configuring camera")
-			self.cameraService.checkForPermissions()
-			self.cameraService.configure()
-			return [].publisher
 		case .closeCamera:
 			return [.closeCamera].publisher
+		case .takePic:
+			self.cameraService.capturePhoto()
+			return[].publisher
 		}
-	}.share()
+	}.merge(with: cameraService.$photo.compactMap{ photo in
+		guard let photo = photo else {
+			return nil
+		}
+		return .pictureTaken(photo)
+
+	}).share()
 
 	//MARK: - Output
 
@@ -54,6 +61,10 @@ class RealMainStreamInteractor: MainStreamInteractor, ObservableObject {
 				self.viewState = MainStreamViewState(cameraState: .scanFor("whatever"), msgText: "hi")
 			case .closeCamera:
 				self.viewState = MainStreamViewState(cameraState: .hide, msgText: "hi")
+			case .pictureTaken(let photo):
+				if let image = photo.image {
+					self.viewState = MainStreamViewState(cameraState: .checking(image), msgText: "hi")
+				}
 			}
 		}.store(in: &bag)
 	}
@@ -62,13 +73,14 @@ class RealMainStreamInteractor: MainStreamInteractor, ObservableObject {
 //MARK: I/O
 enum MainStreamViewIntent {
 	case pressedButton
-	case configureCamera
 	case closeCamera
+	case takePic
 }
 
 enum MainStreamResult {
 	case openCamera
 	case closeCamera
+	case pictureTaken(Photo)
 }
 
 struct MainStreamViewState {
@@ -76,7 +88,7 @@ struct MainStreamViewState {
 	enum CameraState {
 		case hide
 		case scanFor(String)
-		case checking
+		case checking(UIImage)
 		case done(String)
 	}
 	var msgText: String

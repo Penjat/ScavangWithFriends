@@ -37,10 +37,9 @@ struct MainStreamView: View {
 			}
 			CameraPreview(session: interactor.cameraService.session)
 				.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width, alignment: .center)
-				.foregroundColor(.blue)
-				.onAppear{
-					self.interactor.processInput(.configureCamera)
-				}
+			Button("take pic") {
+				interactor.processInput(.takePic)
+			}
 		}
 
 	}
@@ -49,9 +48,14 @@ struct MainStreamView: View {
 			switch interactor.viewState.cameraState {
 			case .scanFor(let _):
 				ZStack {
-				gameView
-				cameraView
-			}
+					gameView
+					cameraView
+				}
+			case .checking(let image):
+				ZStack {
+					gameView
+					Image(uiImage: image).resizable().frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width, alignment: .center)
+				}
 			default:
 				gameView
 
