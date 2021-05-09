@@ -34,12 +34,14 @@ class RealMainStreamInteractor: MainStreamInteractor, ObservableObject {
 		switch intent {
 		case .pressedButton:
 			print("pressed button")
-			return [].publisher
+			return [.openCamera].publisher
 		case .configureCamera:
 			print("configuring camera")
 			self.cameraService.checkForPermissions()
 			self.cameraService.configure()
 			return [].publisher
+		case .closeCamera:
+			return [.closeCamera].publisher
 		}
 	}.share()
 
@@ -48,8 +50,10 @@ class RealMainStreamInteractor: MainStreamInteractor, ObservableObject {
 	private func resultsToViewState() {
 		results.sink{ result in
 			switch result {
-			case .updateCounter(_):
-				break
+			case .openCamera:
+				self.viewState = MainStreamViewState(cameraState: .scanFor("whatever"), msgText: "hi")
+			case .closeCamera:
+				self.viewState = MainStreamViewState(cameraState: .hide, msgText: "hi")
 			}
 		}.store(in: &bag)
 	}
@@ -59,15 +63,24 @@ class RealMainStreamInteractor: MainStreamInteractor, ObservableObject {
 enum MainStreamViewIntent {
 	case pressedButton
 	case configureCamera
+	case closeCamera
 }
 
 enum MainStreamResult {
-	case updateCounter(String)
+	case openCamera
+	case closeCamera
 }
 
 struct MainStreamViewState {
+	let cameraState: CameraState
+	enum CameraState {
+		case hide
+		case scanFor(String)
+		case checking
+		case done(String)
+	}
 	var msgText: String
 	static var initial: MainStreamViewState {
-		return MainStreamViewState(msgText: "Initial Text")
+		return MainStreamViewState(cameraState: .hide, msgText:"Initial Text")
 	}
 }

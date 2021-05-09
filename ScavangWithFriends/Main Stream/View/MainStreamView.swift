@@ -17,15 +17,23 @@ struct MainStreamView: View {
 		Text("Take a picture of things around you to complete your Quest.").foregroundColor(.gray)
 	}
 
-	var body: some View {
-		ZStack{
-			ScrollView{
-				titleView
-				Divider()
-				Text("How to play:").font(.title2).foregroundColor(.orange).underline()
-				howToPLay.padding()
-				Divider()
-				LevelOne()
+	var gameView: some View {
+		ScrollView{
+			titleView
+			Divider()
+			Text("How to play:").font(.title2).foregroundColor(.orange).underline()
+			howToPLay.padding()
+			Divider()
+			Button("Feed the horses"){
+				interactor.processInput(.pressedButton)
+			}
+		}
+	}
+
+	var cameraView: some View {
+		VStack{
+			Button("x") {
+				interactor.processInput(.closeCamera)
 			}
 			CameraPreview(session: interactor.cameraService.session)
 				.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width, alignment: .center)
@@ -33,6 +41,20 @@ struct MainStreamView: View {
 				.onAppear{
 					self.interactor.processInput(.configureCamera)
 				}
+		}
+
+	}
+
+	var body: some View {
+			switch interactor.viewState.cameraState {
+			case .scanFor(let _):
+				ZStack {
+				gameView
+				cameraView
+			}
+			default:
+				gameView
+
 		}
 	}
 }
