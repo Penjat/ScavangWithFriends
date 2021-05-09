@@ -4,7 +4,7 @@ import SwiftUI
 struct ScavangWithFriendsApp: App {
     var body: some Scene {
         WindowGroup {
-            TitleMenuView()
+			MainStreamView()
         }
     }
 }

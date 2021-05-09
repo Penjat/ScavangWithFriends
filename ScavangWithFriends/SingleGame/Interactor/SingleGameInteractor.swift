@@ -31,6 +31,7 @@ class RealSingleGameInteractor: SingleGameInteractor, ObservableObject {
 	init() {
 		viewState = SingleGameViewState(gameState: .playing, unPhotoed: game.remainingClues.map{$0.key})
 		resultsToViewState()
+		
 	}
 
 	deinit {
@@ -62,6 +63,9 @@ class RealSingleGameInteractor: SingleGameInteractor, ObservableObject {
 		case .configure:
 			self.service.checkForPermissions()
 			self.service.configure()
+			return [].publisher
+		case .flipCamera:
+			self.service.changeCamera()
 			return [].publisher
 		}
 	}.share()

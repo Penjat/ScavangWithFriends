@@ -31,7 +31,7 @@ struct SingleGameView: View {
 					.tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
 					.frame(width: UIScreen.main.bounds.width/2, height: 200, alignment: .bottom)
 				}.navigationBarItems(trailing: Button("Flip"){
-//					service.changeCamera()
+					interactor.processInput(.flipCamera)
 				})
 //				if service.photo != nil {
 //					Image(uiImage: service.photo!.image!)

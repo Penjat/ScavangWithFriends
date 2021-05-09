@@ -4,6 +4,7 @@ import Foundation
 enum SingleGameViewIntent {
 	case takePhoto(String)
 	case configure
+	case flipCamera
 }
 
 //MARK: Output
