@@ -31,17 +31,18 @@ struct MainStreamView: View {
 	}
 
 	var cameraView: some View {
-		VStack{
-			Button("x") {
-				interactor.processInput(.closeCamera)
-			}
-			CameraPreview(session: interactor.cameraService.session)
-				.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width, alignment: .center)
-			Button("take pic") {
-				interactor.processInput(.takePic)
+		ZStack {
+			VStack{
+				Button("x") {
+					interactor.processInput(.closeCamera)
+				}
+				CameraPreview(session: interactor.cameraService.session)
+					.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width, alignment: .center)
+				Button("take pic") {
+					interactor.processInput(.takePic)
+				}
 			}
 		}
-
 	}
 
 	var body: some View {
@@ -55,6 +56,13 @@ struct MainStreamView: View {
 				ZStack {
 					gameView
 					Image(uiImage: image).resizable().frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width, alignment: .center)
+					ProgressView().progressViewStyle(CircularProgressViewStyle())
+				}
+			case .done(let image, let indentifiedAs):
+				ZStack {
+					gameView
+					Image(uiImage: image).resizable().frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width, alignment: .center)
+					Text(indentifiedAs)
 				}
 			default:
 				gameView

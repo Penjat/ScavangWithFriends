@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B4BCFB92652110C00716F33 /* MLScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4BCFB82652110C00716F33 /* MLScanner.swift */; };
+		0B4BCFBD26521B6C00716F33 /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0B4BCFBC26521B6C00716F33 /* MobileNet.mlmodel */; };
 		0BA5BF1C264760E900F00D8F /* MainStreamInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5BF1B264760E900F00D8F /* MainStreamInteractor.swift */; };
 		0BA71E80263F5AD2009E57A4 /* ScavangWithFriendsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71E7F263F5AD2009E57A4 /* ScavangWithFriendsApp.swift */; };
 		0BA71E84263F5AD3009E57A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA71E83263F5AD3009E57A4 /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B4BCFB82652110C00716F33 /* MLScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLScanner.swift; sourceTree = "<group>"; };
+		0B4BCFBC26521B6C00716F33 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
 		0BA5BF1B264760E900F00D8F /* MainStreamInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStreamInteractor.swift; sourceTree = "<group>"; };
 		0BA71E7C263F5AD2009E57A4 /* ScavangWithFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScavangWithFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA71E7F263F5AD2009E57A4 /* ScavangWithFriendsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScavangWithFriendsApp.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				0BA71F4A26424263009E57A4 /* LevelOne.swift */,
+				0B4BCFB82652110C00716F33 /* MLScanner.swift */,
 			);
 			path = Repo;
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 		0BA71E7E263F5AD2009E57A4 /* ScavangWithFriends */ = {
 			isa = PBXGroup;
 			children = (
+				0B4BCFBC26521B6C00716F33 /* MobileNet.mlmodel */,
 				0BA71F4326423D77009E57A4 /* Main Stream */,
 				0BA71E9E263FA7CF009E57A4 /* Title */,
 				0BA71E9C263FA7B8009E57A4 /* App */,
@@ -332,9 +338,11 @@
 				0BA71E90263F5E11009E57A4 /* TitleMenuView.swift in Sources */,
 				0BA71E96263F5E6D009E57A4 /* SingleGameView.swift in Sources */,
 				0BA71F4526423F97009E57A4 /* MainStreamView.swift in Sources */,
+				0B4BCFB92652110C00716F33 /* MLScanner.swift in Sources */,
 				0BA71EA226404A07009E57A4 /* SingleGameIO.swift in Sources */,
 				0BA71EB026406D13009E57A4 /* SingleGame.swift in Sources */,
 				0BA71E93263F5E4F009E57A4 /* SingleGameConfigView.swift in Sources */,
+				0B4BCFBD26521B6C00716F33 /* MobileNet.mlmodel in Sources */,
 				0BA71E80263F5AD2009E57A4 /* ScavangWithFriendsApp.swift in Sources */,
 				0BA71F4B26424263009E57A4 /* LevelOne.swift in Sources */,
 				0BA5BF1C264760E900F00D8F /* MainStreamInteractor.swift in Sources */,

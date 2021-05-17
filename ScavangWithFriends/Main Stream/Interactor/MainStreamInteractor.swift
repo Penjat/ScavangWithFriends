@@ -10,6 +10,7 @@ protocol MainStreamInteractor {
 // MARK: - Implemetation
 class RealMainStreamInteractor: MainStreamInteractor, ObservableObject {
 	let cameraService = CameraService()
+	let mlService = ImageScanner()
 	private var bag = Set<AnyCancellable>()
 	@Published var viewState: MainStreamViewState
 
@@ -42,15 +43,29 @@ class RealMainStreamInteractor: MainStreamInteractor, ObservableObject {
 			return [.closeCamera].publisher
 		case .takePic:
 			self.cameraService.capturePhoto()
-			return[].publisher
+			return[].publisher//TODO could return loading
 		}
-	}.merge(with: cameraService.$photo.compactMap{ photo in
-		guard let photo = photo else {
-			return nil
+	}.merge(with: mlService.$output.flatMap { result -> Publishers.Sequence<[MainStreamResult], Never> in
+		switch result {
+		case .sucess:
+			print("recieved sucess result")
+			guard let image = self.cameraService.photo?.image else {
+				return [].publisher
+				}
+			return [.pictureScanned(image, "ur pic was scanned")].publisher
+		case .nothing:
+			return [].publisher
+		case .error:
+			return [].publisher
 		}
-		return .pictureTaken(photo)
+	}, cameraService.$photo.flatMap{ photo -> Publishers.Sequence<[MainStreamResult], Never> in
+		guard let photo = photo, let image = photo.image else {
+			return [].publisher
+		}
+		self.mlService.processImage(image: image)
+		return [.pictureTaken(photo)].publisher
 
-	}).share()
+	})
 
 	//MARK: - Output
 
@@ -65,6 +80,8 @@ class RealMainStreamInteractor: MainStreamInteractor, ObservableObject {
 				if let image = photo.image {
 					self.viewState = MainStreamViewState(cameraState: .checking(image), msgText: "hi")
 				}
+			case .pictureScanned(let image, let response):
+				self.viewState = MainStreamViewState(cameraState: .done(image, response), msgText: "hi")
 			}
 		}.store(in: &bag)
 	}
@@ -81,6 +98,7 @@ enum MainStreamResult {
 	case openCamera
 	case closeCamera
 	case pictureTaken(Photo)
+	case pictureScanned(UIImage, String)
 }
 
 struct MainStreamViewState {
@@ -89,7 +107,7 @@ struct MainStreamViewState {
 		case hide
 		case scanFor(String)
 		case checking(UIImage)
-		case done(String)
+		case done(UIImage, String)
 	}
 	var msgText: String
 	static var initial: MainStreamViewState {
