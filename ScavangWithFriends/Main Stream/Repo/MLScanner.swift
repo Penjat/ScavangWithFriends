@@ -67,7 +67,7 @@ class ImageScanner {
 					// Formats the classification for display; e.g. "(0.37) cliff, drop, drop-off".
 				   return String(format: "  (%.2f) %@", classification.confidence, classification.identifier)
 				}
-				self.output = .sucess("hello from the ml model")
+				self.output = .sucess(descriptions.first ?? "???")
 			}
 		}
 	}

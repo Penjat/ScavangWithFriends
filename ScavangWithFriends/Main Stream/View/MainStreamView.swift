@@ -55,13 +55,18 @@ struct MainStreamView: View {
 			case .checking(let image):
 				ZStack {
 					gameView
-					Image(uiImage: image).resizable().frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width, alignment: .center)
+					Image(uiImage: image).resizable().aspectRatio(contentMode: .fit).frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width, alignment: .center)
 					ProgressView().progressViewStyle(CircularProgressViewStyle())
 				}
 			case .done(let image, let indentifiedAs):
 				ZStack {
 					gameView
-					Image(uiImage: image).resizable().frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width, alignment: .center)
+					VStack{
+						Image(uiImage: image).resizable().aspectRatio(contentMode: .fit).frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width, alignment: .center)
+						Button("X", action: {
+							interactor.processInput(.closeCamera)
+						})
+					}
 					Text(indentifiedAs)
 				}
 			default:

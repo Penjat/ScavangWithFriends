@@ -47,12 +47,12 @@ class RealMainStreamInteractor: MainStreamInteractor, ObservableObject {
 		}
 	}.merge(with: mlService.$output.flatMap { result -> Publishers.Sequence<[MainStreamResult], Never> in
 		switch result {
-		case .sucess:
+		case .sucess(let response):
 			print("recieved sucess result")
 			guard let image = self.cameraService.photo?.image else {
 				return [].publisher
 				}
-			return [.pictureScanned(image, "ur pic was scanned")].publisher
+			return [.pictureScanned(image, response)].publisher
 		case .nothing:
 			return [].publisher
 		case .error:
