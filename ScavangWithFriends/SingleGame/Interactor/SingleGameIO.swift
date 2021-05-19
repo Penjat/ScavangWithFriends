@@ -3,6 +3,8 @@ import Foundation
 //MARK: Input
 enum SingleGameViewIntent {
 	case takePhoto(String)
+	case configure
+	case flipCamera
 }
 
 //MARK: Output
