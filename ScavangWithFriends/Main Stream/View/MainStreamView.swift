@@ -14,7 +14,7 @@ struct MainStreamView: View {
 
 	var howToPLay: some View {
 		
-		Text("Take a picture of things around you to complete your Quest.").foregroundColor(.gray)
+		Text("Take a picture of things around you to complete your Quest.").font(.title2).foregroundColor(.gray)
 	}
 
 	var gameView: some View {
@@ -24,9 +24,10 @@ struct MainStreamView: View {
 			Text("How to play:").font(.title2).foregroundColor(.orange).underline()
 			howToPLay.padding()
 			Divider()
-			Button("Feed the horses"){
-				interactor.processInput(.pressedButton)
-			}
+			QuestQestion(question: "A", completed: false, publisher: interactor.intents)
+			QuestQestion(question: "B", completed: true, answer: "Bananas", publisher: interactor.intents)
+			QuestQestion(question: "C", completed: false, publisher: interactor.intents)
+			QuestQestion(question: "D", completed: false, publisher: interactor.intents)
 		}
 	}
 
@@ -67,11 +68,14 @@ struct MainStreamView: View {
 							interactor.processInput(.closeCamera)
 						})
 					}
-					Text(indentifiedAs)
+					VStack {
+						ForEach(indentifiedAs, id: \.self) { string in
+							Text(string)
+						}
+					}
 				}
 			default:
 				gameView
-
 		}
 	}
 }

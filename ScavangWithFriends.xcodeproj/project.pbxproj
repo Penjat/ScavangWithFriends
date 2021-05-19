@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0B4BCFB92652110C00716F33 /* MLScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4BCFB82652110C00716F33 /* MLScanner.swift */; };
 		0B4BCFBD26521B6C00716F33 /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0B4BCFBC26521B6C00716F33 /* MobileNet.mlmodel */; };
+		0B4BCFC726523D9700716F33 /* QuestQestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4BCFC626523D9700716F33 /* QuestQestion.swift */; };
 		0BA5BF1C264760E900F00D8F /* MainStreamInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA5BF1B264760E900F00D8F /* MainStreamInteractor.swift */; };
 		0BA71E80263F5AD2009E57A4 /* ScavangWithFriendsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA71E7F263F5AD2009E57A4 /* ScavangWithFriendsApp.swift */; };
 		0BA71E84263F5AD3009E57A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA71E83263F5AD3009E57A4 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		0B4BCFB82652110C00716F33 /* MLScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLScanner.swift; sourceTree = "<group>"; };
 		0B4BCFBC26521B6C00716F33 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
+		0B4BCFC626523D9700716F33 /* QuestQestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestQestion.swift; sourceTree = "<group>"; };
 		0BA5BF1B264760E900F00D8F /* MainStreamInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStreamInteractor.swift; sourceTree = "<group>"; };
 		0BA71E7C263F5AD2009E57A4 /* ScavangWithFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScavangWithFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA71E7F263F5AD2009E57A4 /* ScavangWithFriendsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScavangWithFriendsApp.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				0BA71F4426423F97009E57A4 /* MainStreamView.swift */,
+				0B4BCFC626523D9700716F33 /* QuestQestion.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				0BA71E80263F5AD2009E57A4 /* ScavangWithFriendsApp.swift in Sources */,
 				0BA71F4B26424263009E57A4 /* LevelOne.swift in Sources */,
 				0BA5BF1C264760E900F00D8F /* MainStreamInteractor.swift in Sources */,
+				0B4BCFC726523D9700716F33 /* QuestQestion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

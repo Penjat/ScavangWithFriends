@@ -67,7 +67,7 @@ class ImageScanner {
 					// Formats the classification for display; e.g. "(0.37) cliff, drop, drop-off".
 				   return String(format: "  (%.2f) %@", classification.confidence, classification.identifier)
 				}
-				self.output = .sucess(descriptions.first ?? "???")
+				self.output = .sucess(descriptions)
 			}
 		}
 	}
@@ -79,7 +79,7 @@ class ImageScanner {
 }
 
 enum ClasificationResult {
-	case sucess(String)
+	case sucess([String])
 	case nothing
 	case error
 }

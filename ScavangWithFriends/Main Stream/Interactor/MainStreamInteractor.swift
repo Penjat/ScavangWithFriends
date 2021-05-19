@@ -98,7 +98,7 @@ enum MainStreamResult {
 	case openCamera
 	case closeCamera
 	case pictureTaken(Photo)
-	case pictureScanned(UIImage, String)
+	case pictureScanned(UIImage, [String])
 }
 
 struct MainStreamViewState {
@@ -107,7 +107,7 @@ struct MainStreamViewState {
 		case hide
 		case scanFor(String)
 		case checking(UIImage)
-		case done(UIImage, String)
+		case done(UIImage, [String])
 	}
 	var msgText: String
 	static var initial: MainStreamViewState {
